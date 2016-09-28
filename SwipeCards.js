@@ -102,8 +102,8 @@ class SwipeCards extends Component {
   componentWillMount() {
     this._panResponder = PanResponder.create({
       onMoveShouldSetResponderCapture: () => true,
-      onMoveShouldSetPanResponderCapture: (evt, gestureState) => {
-        return gestureState.dx != 0 && gestureState.dy != 0;
+      onMoveShouldSetPanResponderCapture: (evt, {dx, dy}) => {
+        return Math.abs(dx) > this.props.swipeStartThreshold || Math.abs(dy) > this.props.swipeStartThreshold;
       },
 
       onPanResponderGrant: (e, gestureState) => {
@@ -254,7 +254,8 @@ SwipeCards.propTypes = {
     yupStyle: View.propTypes.style,
     yupTextStyle: Text.propTypes.style,
     nopeStyle: View.propTypes.style,
-    nopeTextStyle: Text.propTypes.style
+    nopeTextStyle: Text.propTypes.style,
+    swipeStartThreshold: React.PropTypes.number,
 };
 
 SwipeCards.defaultProps = {
@@ -265,7 +266,8 @@ SwipeCards.defaultProps = {
     yupStyle: styles.yup,
     yupTextStyle: styles.yupText,
     nopeStyle: styles.nope,
-    nopeTextStyle: styles.nopeText
+    nopeTextStyle: styles.nopeText,
+    swipeStartThreshold: 0,
 };
 
 export default SwipeCards
