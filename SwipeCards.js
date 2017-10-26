@@ -9,8 +9,11 @@ import {
     View,
     Animated,
     PanResponder,
-    Image
+    Image,
+    ViewPropTypes,
 } from 'react-native';
+
+import PropTypes from 'prop-types';
 
 import clamp from 'clamp';
 
@@ -237,25 +240,25 @@ class SwipeCards extends Component {
 }
 
 SwipeCards.propTypes = {
-    cards: React.PropTypes.array,
-    renderCards: React.PropTypes.func,
-    loop: React.PropTypes.bool,
-    renderNoMoreCards: React.PropTypes.func,
-    showYup: React.PropTypes.bool,
-    showNope: React.PropTypes.bool,
-    handleYup: React.PropTypes.func,
-    handleNope: React.PropTypes.func,
-    yupView: React.PropTypes.element,
-    yupText: React.PropTypes.string,
-    noView: React.PropTypes.element,
-    noText: React.PropTypes.string,
-    containerStyle: View.propTypes.style,
-    cardStyle: View.propTypes.style,
-    yupStyle: View.propTypes.style,
+    cards: PropTypes.array,
+    renderCards: PropTypes.func,
+    loop: PropTypes.bool,
+    renderNoMoreCards: PropTypes.func,
+    showYup: PropTypes.bool,
+    showNope: PropTypes.bool,
+    handleYup: PropTypes.func,
+    handleNope: PropTypes.func,
+    yupView: PropTypes.element,
+    yupText: PropTypes.string,
+    noView: PropTypes.element,
+    noText: PropTypes.string,
+    containerStyle: ViewPropTypes.style,
+    cardStyle: ViewPropTypes.style,
+    yupStyle: ViewPropTypes.style,
     yupTextStyle: Text.propTypes.style,
-    nopeStyle: View.propTypes.style,
+    nopeStyle: ViewPropTypes.style,
     nopeTextStyle: Text.propTypes.style,
-    swipeStartThreshold: React.PropTypes.number,
+    swipeStartThreshold: PropTypes.number,
 };
 
 SwipeCards.defaultProps = {
